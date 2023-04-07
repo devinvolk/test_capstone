@@ -1,3 +1,12 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #CCD0D8;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +44,40 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.exercise-card {
+  width: 400px;
+  height: 445px;
+  background: whitesmoke;
+  box-shadow: 0 0 4px 4px #1463f3;
+  /* border: 3px solid #1462f3; */
+  border-radius: 20px;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding-bottom: 10px;
+  transform: scale(1, 1);
+  transition: 0.3s all ease-in-out;
+}
+
+.exercise-card img {
+  height: 326px;
+  border-radius: 20px;
+}
+
+.exercise-card:hover {
+  transform: scale(1.1, 1.1);
+  cursor: pointer;
+  box-shadow: 0 0 5px 5px #1463f3;
+}
+
+.youtubeVideo {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 387px;
+  height: 381px;
+  text-decoration: none;
 }
