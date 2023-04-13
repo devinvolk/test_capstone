@@ -81,3 +81,14 @@ body {
   height: 381px;
   text-decoration: none;
 }
+
+#footer-link:hover #github {
+  transform: scale(1.1, 1.1) rotate(360deg);
+  cursor: pointer;
+  transition: 0.4s all ease-in-out;
+  color: black;
+}
+
+#footer-link:hover {
+  color: black;
+}

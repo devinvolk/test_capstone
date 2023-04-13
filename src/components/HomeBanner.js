@@ -1,8 +1,15 @@
 import React from 'react';
 import { Box, Stack, Typography, Button } from '@mui/material';
 import { lineHeight } from '@mui/system';
+import { useNavigate } from 'react-router-dom';
 
 export const HomeBanner = () => {
+    
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/signup');
+  };
+
   return (
     <Box sx={{
         marginTop: {lg: '210px', xs: '70px'},
@@ -17,7 +24,7 @@ export const HomeBanner = () => {
         <Typography fontSize={'20px'} lineHeight={'35px'} marginBottom={3}>
             Join our exercise collective today!
         </Typography>
-        <Button variant='contained' sx={{backgroundColor: '#1463F3'}}>Join!</Button>
+        <Button variant='contained' sx={{backgroundColor: '#1463F3'}} onClick={handleClick}>Join!</Button>
     </Box>
   )
 }

@@ -27,7 +27,7 @@ export const ExerciseDetails = () => {
   return (
     <Box>
       <ExercisePage detail={detail} />
-      <YoutubeVideos youtubeVideos={youtubeVideos} name={detail.name} />
+      <YoutubeVideos youtubeVideos={youtubeVideos} />
     </Box>
   )
 }

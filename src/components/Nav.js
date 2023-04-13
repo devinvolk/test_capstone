@@ -23,14 +23,17 @@ export const Nav = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div className="navbar-nav">
-              <Link className="nav-link" to={'/exercise/:id'}>
-                Exercises
+              <Link className="nav-link" to={'/searchexercises'}>
+                Search Exercises
               </Link>
               <Link className="nav-link" to={'/login'}>
                 Login
               </Link>
-              <Link className="nav-link" to={'/logout'}>
-                Logout
+              <Link className="nav-link" to={'/signup'}>
+                Sign Up
+              </Link>
+              <Link className="nav-link" to={'/workoutcreator'}>
+                Workout Creator
               </Link>
             </div>
           </div>

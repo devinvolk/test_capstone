@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Stack, Typography, TextField, Button } from '@mui/material';
 import { exerciseOptions, fetchData } from '../utility/fetchData';
-import { DropDownMuscleGroup } from './DropDownMuscleGroup';
+import { DropDownMuscleGroup } from '../components/DropDownMuscleGroup';
+import { Exercises } from '../components/Exercises';
 
 
-export const ExerciseSearch = ( {muscleGroup, setMuscleGroup, setExercises}) => {
+export const ExerciseSearch = () => {
+    const [muscleGroup, setMuscleGroup] = useState('all')
+    const [exercises, setExercises] = useState([])
     const [search, setSearch] = useState('')
     const [exerciseTarget, setExerciseTarget] = useState([])
 
@@ -28,6 +31,7 @@ export const ExerciseSearch = ( {muscleGroup, setMuscleGroup, setExercises}) => 
     }
 
   return (
+    <Box>
     <Stack alignItems={'center'} justifyContent={'center'} marginTop={2} padding={1}>
         <Typography fontWeight={'700'} marginBottom={3} textAlign={'center'} sx={{fontSize: {lg: '45px', xs: '40px'}}}>
             Search For An Exercise
@@ -68,5 +72,9 @@ export const ExerciseSearch = ( {muscleGroup, setMuscleGroup, setExercises}) => 
             <DropDownMuscleGroup exerciseTarget={exerciseTarget} muscleGroup={muscleGroup} setMuscleGroup={setMuscleGroup} />
         </Box>
     </Stack>
+    <Box>
+        <Exercises muscleGroup={muscleGroup} exercises={exercises} setExercises={setExercises} />
+    </Box>
+    </Box>
   )
 }

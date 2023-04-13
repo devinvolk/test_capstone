@@ -1,10 +1,15 @@
-import { Box, Stack, Typography } from '@mui/material'
+import { Box, Stack, Typography, Skeleton } from '@mui/material'
 import React from 'react'
 
-export const YoutubeVideos = ({ youtubeVideos, name }) => {
-  if(!youtubeVideos.length) return 'Loading...'
+
+export const YoutubeVideos = ({ youtubeVideos }) => {
+  if(!youtubeVideos.length) return (
+    <Stack alignItems={'center'} justifyContent={'center'}>
+      <Skeleton variant="rounded" width={'80%'} height={200} />
+    </Stack>
+  )
   return (
-    <Box padding={'20px'} sx={{ marginTop: { lg: '200px', xs: '20px' }}}>
+    <Box padding={'20px'} sx={{ marginTop: { lg: '50px', xs: '20px' }}}>
       <Typography variant='h3' marginBottom={3}>
         Related Videos:
       </Typography>
