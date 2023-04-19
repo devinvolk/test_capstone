@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Box, Stack, Typography, TextField, Button } from '@mui/material';
-import { exerciseOptions, fetchData } from '../utility/fetchData';
-import { DropDownMuscleGroup } from '../components/DropDownMuscleGroup';
-import { Exercises } from '../components/Exercises';
+import React, { useState, useEffect } from 'react'
+import { Box, Stack, Typography, TextField, Button } from '@mui/material'
+import { exerciseOptions, fetchData } from '../utility/fetchData'
+import { DropDownMuscleGroup } from '../components/DropDownMuscleGroup'
+import { Exercises } from '../components/Exercises'
 
 
 export const ExerciseSearch = () => {

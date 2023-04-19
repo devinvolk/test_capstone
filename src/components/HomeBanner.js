@@ -1,13 +1,13 @@
-import React from 'react';
-import { Box, Stack, Typography, Button } from '@mui/material';
-import { lineHeight } from '@mui/system';
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
+import { Box, Stack, Typography, Button } from '@mui/material'
+import { lineHeight } from '@mui/system'
+import { useNavigate } from 'react-router-dom'
 
 export const HomeBanner = () => {
     
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const handleClick = () => {
-    navigate('/signup');
+    navigate('/signup')
   };
 
   return (

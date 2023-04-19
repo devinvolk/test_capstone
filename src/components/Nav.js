@@ -1,6 +1,7 @@
 import { Box } from '@mui/material';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { auth } from '../firebase';
 
 export const Nav = () => {
   return (
@@ -32,8 +33,14 @@ export const Nav = () => {
               <Link className="nav-link" to={'/signup'}>
                 Sign Up
               </Link>
+              <Link className="nav-link" to={'/updateprofile'}>
+                Update Profile
+              </Link>
               <Link className="nav-link" to={'/workoutcreator'}>
                 Workout Creator
+              </Link>
+              <Link className="nav-link" to={'/'} onClick={()=> {auth.signOut()}}>
+                Log Out
               </Link>
             </div>
           </div>

@@ -11,6 +11,7 @@ import { ExerciseDetails } from './views/ExerciseDetails';
 import { SignUp } from './views/SignUp';
 import { Login } from './views/Login';
 import { WorkoutCreator } from './views/WorkoutCreator';
+import { UpdateProfile } from './views/UpdateProfile';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/exercise/:id' element={<ExerciseDetails />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/updateprofile' element={<UpdateProfile />} />
         <Route path='/workoutcreator' element={<WorkoutCreator />} />
       </Routes>
       <Footer />

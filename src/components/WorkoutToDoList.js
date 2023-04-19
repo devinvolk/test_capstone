@@ -1,15 +1,20 @@
 import React, { useState } from 'react'
 import { Box, TextField, Button, Avatar, Typography, Fab } from '@mui/material'
-import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
-import AddIcon from '@mui/icons-material/Add';
-import DeleteIcon from '@mui/icons-material/Delete';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Link } from 'react-router-dom';
+import FitnessCenterIcon from '@mui/icons-material/FitnessCenter'
+import AddIcon from '@mui/icons-material/Add'
+import DeleteIcon from '@mui/icons-material/Delete'
+import GitHubIcon from '@mui/icons-material/GitHub'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
+import { Link } from 'react-router-dom'
+import { auth, db } from '../firebase'
+import { setDoc, doc } from 'firebase/firestore'
+import { Alert, AlertTitle} from '@mui/material'
 
 export const WorkoutToDoList = () => {
     const [workouts, setWorkouts] = useState([])
     const [newWorkout, setNewWorkout] = useState('')
+    const [title, setTitle] = useState('')
+    const [alertMessage, setAlertMessage] = useState(false)
 
     const addWorkout = () => {
         if (newWorkout !== '') {
@@ -24,12 +29,18 @@ export const WorkoutToDoList = () => {
         setWorkouts(updateWorkouts)
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-          email: data.get('email'),
-        })
+        try {
+          await setDoc(doc(db, 'users', auth.currentUser.uid, 'workouts', title),{
+            Title: title,
+            Exercises: workouts
+            }
+          )
+          setAlertMessage(true)
+        } catch (error) {
+          console.error('Error updating profile', error)
+        }
     }
 
     function Copyright(props) {
@@ -48,6 +59,11 @@ export const WorkoutToDoList = () => {
 
   return (
     <ThemeProvider theme={theme}>
+      {alertMessage && (
+          <Alert severity='success'>
+            <AlertTitle>Workout Created!</AlertTitle>
+          </Alert>
+        )}
        <Box sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -72,9 +88,13 @@ export const WorkoutToDoList = () => {
           <Avatar sx={{ mt: 3, mb: 1, bgcolor: "primary.main" }}>
             <FitnessCenterIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
-            Workout Creator
-          </Typography>
+          <TextField
+              type="text"
+              size="normal"
+              variant="standard"
+              placeholder="Title"
+              onChange={(event) => setTitle(event.target.value)}
+            />
           <Box
             component="form"
             onSubmit={handleSubmit}
