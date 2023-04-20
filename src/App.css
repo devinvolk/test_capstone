@@ -59,6 +59,10 @@ body {
   height: 50px;
 }
 
+.navbar-brand {
+  text-align: center !important;
+}
+
 .hero-img {
   position: absolute;
   right: 40px;
