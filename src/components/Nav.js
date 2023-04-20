@@ -37,32 +37,58 @@ export const Nav = () => {
   };
 
   const handleSearchClick = () => {
+    if (auth.currentUser) { 
     navigate('/searchexercises')
     handleCloseNavMenu()
+     } else {
+      alert('Please sign in or create an account!')
+      navigate('/signup')
+     }
   }
 
   const handleWorkoutClick = () => {
+    if (auth.currentUser) {
     navigate('/workoutcreator')
     handleCloseNavMenu()
+    } else {
+      alert('Please sign in or create an account!')
+      navigate('/signup')
+    }
   }
 
   const handleUpdateClick = () => {
+    if (auth.currentUser) {
     navigate('/updateprofile')
     handleCloseUserMenu()
+    } else {
+      alert('Please sign in or create an account!')
+      navigate('/signup')
+    }
   }
 
   const handleFavoriteClick = () => {
+    if (auth.currentUser) {
     navigate('/favorites')
     handleCloseUserMenu()
+    } else {
+      alert('Please sign in or create an account!')
+      navigate('/signup')
+    }
   }
 
   const handleWorkoutsClick = () => {
+    if (auth.currentUser) {
     navigate('/workouts')
     handleCloseUserMenu()
+    } else {
+      alert('Please sign in or create an account!')
+      navigate('/signup')
+    }
   }
 
   const handleLogoutClick = () => {
     auth.signOut()
+    navigate('/')
     handleCloseUserMenu()
   }
 
@@ -148,14 +174,14 @@ export const Nav = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
               <Button
                 key='searchexercises'
-                onClick={() => navigate('/searchexercises')}
+                onClick={handleSearchClick}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 Search Exercises
               </Button>
               <Button
                 key='workoutcreator'
-                onClick={() => navigate('/workoutcreator')}
+                onClick={handleWorkoutClick}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 Workout Creator
@@ -165,7 +191,7 @@ export const Nav = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt={auth.currentUser ? auth.currentUser.displayName : ''} src="#" />
               </IconButton>
             </Tooltip>
             <Menu

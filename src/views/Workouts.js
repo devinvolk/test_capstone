@@ -9,7 +9,7 @@ export const Workouts = () => {
     const handleDelete = async (workoutID) => {
         try {
             await deleteDoc(doc(db, 'users', auth.currentUser.uid, 'workouts', workoutID))
-            setWorkouts((oldWorkouts) =>
+            setWorkouts((oldWorkouts) => 
                 oldWorkouts.filter((workout) => workout.id !== workoutID)
             )
         } catch (error) {

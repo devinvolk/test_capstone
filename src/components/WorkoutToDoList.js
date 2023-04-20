@@ -76,7 +76,7 @@ export const WorkoutToDoList = () => {
         <Box
           sx={{
             marginTop: 8,
-            marginBottom: 8,
+            marginBottom: 0,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
