@@ -18,6 +18,7 @@ function App() {
     <BrowserRouter>
     <Box width='400px' sx={{ width: {xl: '1488px'}}} m='auto'>
       <Nav />
+      <div className='content'>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/searchexercises' element={<ExerciseSearch />} />
@@ -27,6 +28,7 @@ function App() {
         <Route path='/updateprofile' element={<UpdateProfile />} />
         <Route path='/workoutcreator' element={<WorkoutCreator />} />
       </Routes>
+      </div>
       <Footer />
     </Box>
     </BrowserRouter>

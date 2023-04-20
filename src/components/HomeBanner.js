@@ -1,7 +1,7 @@
 import React from 'react'
-import { Box, Stack, Typography, Button } from '@mui/material'
-import { lineHeight } from '@mui/system'
+import { Box, Typography, Button } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
+import HeroBannerImg from '../images/HeroBannerImg.jpeg'
 
 export const HomeBanner = () => {
     
@@ -25,6 +25,7 @@ export const HomeBanner = () => {
             Join our exercise collective today!
         </Typography>
         <Button variant='contained' sx={{backgroundColor: '#1463F3'}} onClick={handleClick}>Join!</Button>
+        <img src={HeroBannerImg} alt='Smiling exercise group' className='hero-img' />
     </Box>
   )
 }
