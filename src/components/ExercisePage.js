@@ -9,8 +9,8 @@ export const ExercisePage = ({detail}) => {
   const handleFavorite = async (event) => {
     event.preventDefault()
     try {
-      await setDoc(doc(db, 'users', auth.currentUser.uid, 'favorites', 'exercise'),{
-        [detail.name]: detail,
+      await setDoc(doc(db, 'users', auth.currentUser.uid, 'favorites', detail.id),{
+        Exercise: detail
         }
       )
       setAlertMessage(true)

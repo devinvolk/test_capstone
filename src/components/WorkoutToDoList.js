@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 import { auth, db } from '../firebase'
 import { setDoc, doc } from 'firebase/firestore'
 import { Alert, AlertTitle} from '@mui/material'
+import { FavoritesDisplayed } from './FavoritesDisplayed'
 
 export const WorkoutToDoList = () => {
     const [workouts, setWorkouts] = useState([])
@@ -114,6 +115,7 @@ export const WorkoutToDoList = () => {
               variant="standard"
               placeholder="Split squat x5"
               onChange={(event) => setNewWorkout(event.target.value)}
+              value={newWorkout}
             />
             <Box sx={{ "& > :not(style)": { m: 1 } }}>
               <Fab color="primary" size='small' aria-label="add" onClick={addWorkout}>
@@ -142,6 +144,9 @@ export const WorkoutToDoList = () => {
           </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
         </Box>
+      </Box>
+      <Box>
+        <FavoritesDisplayed />
       </Box>
     </ThemeProvider>
   );
