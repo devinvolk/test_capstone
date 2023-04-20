@@ -19,7 +19,7 @@ export const FavoritesPageDisplayed = () => {
     }
 
     useEffect(() => {
-        const readOneTime = onSnapshot(collection(db, 'users', auth.currentUser.uid, 'favorites'), (querySnapshot) => {
+        const unmount = onSnapshot(collection(db, 'users', auth.currentUser.uid, 'favorites'), (querySnapshot) => {
           const favoriteArr = []
           querySnapshot.forEach((doc) => {
             favoriteArr.push(doc.data())
@@ -28,7 +28,7 @@ export const FavoritesPageDisplayed = () => {
         })
     
         return () => {
-          readOneTime()
+          unmount()
         }
       }, [])
 
