@@ -16,7 +16,7 @@ export const HomeBanner = () => {
         marginLeft: {sm: '50px'}
     }} position={'relative'} padding={'20px'}>
         <Typography color={'#1463F3'} fontWeight={'600'} fontSize={'25px'}>
-            Welcome to Social Fit!
+            Welcome to GymIQ!
         </Typography>
         <Typography fontWeight={'700'} sx={{ fontSize: {lg: '45px', xs: '40px'}}} marginTop={2} marginBottom={2}>
             Eat, Train, Sleep, <br></br> Repeat
