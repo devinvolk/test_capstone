@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FormControl, InputLabel, Select, MenuItem, Stack, Typography } from '@mui/material'
 import { Box, Button } from '@mui/material'
-import { fetchData, exerciseOptions } from '../utility/fetchData'
+// import { fetchData, exerciseOptions } from '../utility/fetchData'
 
 export const DropDownMuscleGroup = ({ exerciseTarget, muscleGroup, setMuscleGroup }) => {
   
